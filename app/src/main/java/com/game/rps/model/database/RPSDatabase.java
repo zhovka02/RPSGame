@@ -25,6 +25,9 @@ public interface RPSDatabase {
      */
     Player getPlayer();
 
+    /**
+     * CLoses the database
+     */
     void close();
 }
 

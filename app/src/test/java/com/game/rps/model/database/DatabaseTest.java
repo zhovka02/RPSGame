@@ -35,8 +35,10 @@ public class DatabaseTest {
 
     @Test
     public void testSavePlayer() {
+        // let's try to save a player to the database
         Player playerToPut = new PlayerImpl("PLayerToPut", 0, 0, 0);
         this.database.savePlayer(playerToPut);
+        // now read the player from the database and check for a match.
         Player playerFromDB = this.database.getPlayer();
         Assert.assertEquals(playerToPut.getName(), playerFromDB.getName());
         Assert.assertEquals(playerToPut.getLosses(), playerFromDB.getLosses());
@@ -46,12 +48,15 @@ public class DatabaseTest {
 
     @Test
     public void testSaveAndUpdatePlayer() {
+        // let's try to save a player to the database
         Player playerToPut = new PlayerImpl("PLayerToPut", 0, 0, 0);
         this.database.savePlayer(playerToPut);
         playerToPut.setWins(10);
         playerToPut.setLosses(10);
         playerToPut.setRounds(20);
+        // let's try to update a player to the database
         this.database.updatePlayer(playerToPut);
+        // now read the player from the database and check for a match.
         Player playerFromDB = this.database.getPlayer();
         Assert.assertEquals(playerToPut.getName(), playerFromDB.getName());
         Assert.assertEquals(playerToPut.getLosses(), playerFromDB.getLosses());
@@ -61,13 +66,16 @@ public class DatabaseTest {
 
     @Test
     public void testSaveAndUpdatePlayerWithNameChange() {
+        // let's try to save a player to the database
         Player playerToPut = new PlayerImpl("PLayerToPut", 0, 0, 0);
         this.database.savePlayer(playerToPut);
         playerToPut.setWins(10);
         playerToPut.setLosses(10);
         playerToPut.setRounds(20);
         playerToPut.setName("NewName");
+        // let's try to update a player to the database
         this.database.updatePlayer(playerToPut);
+        // now read the player from the database and check for a match.
         Player playerFromDB = this.database.getPlayer();
         Assert.assertEquals(playerToPut.getName(), playerFromDB.getName());
         Assert.assertEquals(playerToPut.getLosses(), playerFromDB.getLosses());

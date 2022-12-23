@@ -43,6 +43,9 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+/**
+ * Run on only two devices at the same time using the built-in Android Studio function
+ */
 @LargeTest
 @RunWith(AndroidJUnit4.class)
 public class ConnectAndRestartTest {
@@ -102,8 +105,8 @@ public class ConnectAndRestartTest {
         // allow detection
         if (Build.VERSION.SDK_INT >= 23) {
             UiDevice device = UiDevice.getInstance(getInstrumentation());
-            UiObject allowPermissions = device.findObject(new UiSelector().text("РАЗРЕШИТЬ"));
-            UiObject allowPermissions2 = device.findObject(new UiSelector().text("Разрешить"));
+            UiObject allowPermissions = device.findObject(new UiSelector().text("ALLOW"));
+            UiObject allowPermissions2 = device.findObject(new UiSelector().text("Allow"));
             if (allowPermissions.exists()) {
                 try {
                     allowPermissions.click();
