@@ -26,7 +26,7 @@
 
   var CATEGORY_EMOJI = {
     hike: "🥾", explore: "🏚️", water: "🌊", wildlife: "🦬",
-    unique: "🏜️", culture: "🏛️", view: "🔭", city: "🏙️"
+    unique: "🏜️", culture: "🏛️", view: "🔭", city: "🏙️", infra: "⚙️"
   };
 
   // ---- small helpers -------------------------------------------------------
@@ -159,6 +159,7 @@
       case "wow": return p.wow >= 9;
       case "hike": return p.category === "hike";
       case "explore": return p.category === "explore";
+      case "infra": return p.category === "infra";
       case "water": return p.category === "water";
       case "city": return p.category === "city" || p.category === "culture";
       case "favorites": return favs.has(p.id);
