@@ -1,0 +1,20 @@
+name: Build enhanced trip map
+on:
+  workflow_dispatch:
+  push:
+    branches: [berlin-trip-map]
+    paths: [.github/workflows/build-enhanced-trip-map.yml]
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: berlin-trip-map
+      - name: Build enhanced standalone site
+        shell: bash
+        run: |
+          cat > /tmp/site.b64 <<'PAYLOAD'
+H4sIALqGUmoC/8V963Mbx5Xv9/wVE8gRgAgc4kGAICBQa/munWyklSpy1lVXpXs9BBrgmAAGnhmQlGhUSZRtOSvZsmxvxRXHj/g6u9na2l2QIiWS4q
