@@ -4,3 +4,14 @@
 @media(max-width:620px){.startRow{grid-template-columns:1fr 1fr}.startInput{grid-column:1/-1}.startBtn,.geoBtn{width:100%}}
 @media(max-width:560px){.gallery{grid-auto-columns:92%}.galleryItem,.galleryItem img{min-height:215px}.factsGrid{grid-template-columns:1fr}}
 @media(max-width:460px){.hero{padding-top:16px}.layout{padding:8px}.toolbar{padding-left:8px;padding-right:8px}.surprise{font-size:12px;padding-left:10px;padding-right:10px}.map{height:56vh;min-height:365px}.mapTop{padding-bottom:7px}.photoWrap{aspect-ratio:16/9}.sheet h2{font-size:23px}}
+/* Smooth bottom-sheet motion + micro-interactions */
+@keyframes sheetUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
+@keyframes backFade{from{opacity:0}to{opacity:1}}
+.sheetBack.open{animation:backFade .2s ease}
+.sheetBack.open .sheet{animation:sheetUp .3s cubic-bezier(.22,.61,.36,1)}
+.card{transition:transform .12s ease,box-shadow .2s ease}
+.card:active{transform:scale(.992)}
+.chip,.fav,.surprise,.detailBtn,.startBtn{transition:transform .1s ease,background .15s ease}
+.chip:active,.fav:active,.surprise:active,.detailBtn:active,.startBtn:active{transform:scale(.94)}
+.galleryItem img{transition:opacity .3s ease}
+@media(prefers-reduced-motion:reduce){.sheetBack.open .sheet,.sheetBack.open{animation:none}.card,.chip,.fav,.surprise,.detailBtn,.startBtn{transition:none}}
